@@ -86,32 +86,34 @@
     --accent-wash:  rgba(191, 154, 208, 0.12);
 }
 
-@view-transition { navigation: auto; }
+/* Cross-document view transitions, desktop only.
 
-/* Naming an element morphs it: the browser animates its box from the old
-   page's geometry to the new page's and stretches the snapshot to fit.
-   That is free on the desktop grid, where the rail is a fixed-width 100vh
-   column and .main only changes height inside a fixed-width column.
-   Below 62rem the grid collapses, both go full-width, and .main's height
-   swings between a short page (cv) and a long one (research) -- the morph
-   then visibly squashes the page. So only name them where the geometry is
-   stable, and let narrow screens use the plain root cross-fade. */
+   Two reasons they are scoped to the same breakpoint as the grid:
+
+   1. Naming an element morphs it -- the browser animates its box from the
+      old page's geometry to the new page's and stretches the snapshot to
+      fit. That is free on the desktop grid, where the rail is a fixed-width
+      100vh column and .main only changes height inside a fixed-width
+      column. Below 62rem the grid collapses and both go full-width, so the
+      morph visibly squashes the page.
+
+   2. Even a plain root cross-fade jolts on a phone. Mobile browsers only
+      collapse the address bar when a page has enough scrollable content,
+      and re-expand it when it does not -- which resizes the viewport
+      mid-navigation, so the snapshot and the new page are measured at
+      different heights. Short pages trip this, and the two that jolted on
+      a real phone are the two shortest. Measured in the stacked layout at
+      960px wide (so taller again on an actual handset, but the ordering
+      holds): cv 1026px, index 2014px, teaching 2480px, research 3243px.
+      cv had 64px of overflow against the viewport; research had 2281px.
+
+   If `@view-transition` inside `@media` is unsupported, the rule is dropped
+   and no page transitions anywhere -- which is the safe direction. */
 @media (min-width: 62rem) {
+    @view-transition { navigation: auto; }
+
     .rail { view-transition-name: rail; }
     .main { view-transition-name: main; }
-}
-
-/* Snapshots default to stretching into the animated box, so any change in
-   page height distorts the image mid-flight. Pin them to their natural size,
-   anchored top-centre, so a height change fades instead of scaling. This
-   also absorbs mobile Safari resizing the viewport when the address bar
-   collapses during navigation. */
-::view-transition-old(root),
-::view-transition-new(root) {
-    height: 100%;
-    object-fit: none;
-    object-position: top center;
-    animation-duration: .22s;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
