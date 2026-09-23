@@ -54,9 +54,9 @@ folder into any repository and adjust the paper links accordingly.
 
 - The job market paper links to `https://simon-mishricky.github.io/APD_Paper.pdf`,
   which is already live. Keep that file at the repository root so the link holds.
-- `Simon-Mishricky-CV.pdf` here is a copy of `Version 15`. Re-copy it whenever the
+- `Simon-Mishricky-CV.pdf` here is a copy of `Version 17`. Re-copy it whenever the
   LaTeX CV changes:
-  `cp "../Version 15/Simon-Mishricky-CV.pdf" Simon-Mishricky-CV.pdf`
+  `cp "../CV/Version 17/Simon-Mishricky-CV.pdf" Simon-Mishricky-CV.pdf`
 - Drafts for the two non-JMP papers are currently "available on request" and link to
   a mailto. Swap those for direct PDF links once the drafts are public.
 - Optional: add an `og-image.png` (1200x630) and reference it from the `og:image`
