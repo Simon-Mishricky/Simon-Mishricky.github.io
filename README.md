@@ -55,9 +55,10 @@ folder into any repository and adjust the paper links accordingly.
 - The job market paper, *Equilibrium Asset Price Dispersion and Flash Crash Risk*, links to
   `https://simon-mishricky.github.io/EAPDFCR_Paper.pdf`. Keep that file at the repository root
   and overwrite it with each new draft, so the link on the CV and the site never changes.
-  `APD_Paper.pdf` (the previous job market paper) and `EAPDFC_Paper.pdf` (a copy of the current
-  paper under the name CV Version 19 first used) are kept so that links in CVs already sent
-  still work.
+  `APD_Paper.pdf` and `EAPDFC_Paper.pdf` are the file names used in CVs sent before the rename.
+  Both hold an identical copy of the current paper, so every link ever sent opens the latest
+  draft. Update all three together:
+  `for f in APD_Paper.pdf EAPDFC_Paper.pdf; do cp EAPDFCR_Paper.pdf $f; done`
 - `Simon-Mishricky-CV.pdf` here is a copy of `Version 17`. Re-copy it whenever the
   LaTeX CV changes:
   `cp "../CV/Version 17/Simon-Mishricky-CV.pdf" Simon-Mishricky-CV.pdf`
