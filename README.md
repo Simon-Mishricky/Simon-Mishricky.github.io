@@ -52,7 +52,7 @@ folder into any repository and adjust the paper links accordingly.
 
 ## Things to update before going live
 
-- The job market paper, *Equilibrium Asset Price Dispersion and Flash Crash Risk*, links to
+- The job market paper, *Asset Price Dispersion, Monetary Policy and Macroprudential Regulation*, links to
   `https://simon-mishricky.github.io/EAPDFCR_Paper.pdf`. Keep that file at the repository root
   and overwrite it with each new draft, so the link on the CV and the site never changes.
   `APD_Paper.pdf` and `EAPDFC_Paper.pdf` are the file names used in CVs sent before the rename.
